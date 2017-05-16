@@ -1,0 +1,37 @@
+spring:
+  profiles:
+    active:
+      - DBDataSource
+      - inMemoryDB
+server:
+  baseUrl: http://localhost:8080/
+  imageUrl: product/images/
+  imageServerDir: c:/lab/assignment3/images\\/
+jwt:
+  header: Authorization
+  secret: mySecret
+  expiration: 604800
+  route:
+    authentication:
+      path: auth
+      refresh: refresh
+---
+spring:
+  profiles: inMemoryDB
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=- 1;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+---
+spring:
+  profiles: local
+server:
+  baseUrl: http://localhost:1000/
+  imageUrl: images/
+---
+spring:
+  profiles: remote
+server:
+  baseUrl: https://s3-ap-southeast-1.amazonaws.com/se331/
+  imageUrl: pics/
