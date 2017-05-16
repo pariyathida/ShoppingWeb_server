@@ -9,5 +9,5 @@ import camt.cbsd.entity.Account;
 
 public interface AccountService {
    Account getAccountForTransfer(String username);
-    //Account addStudent(Account account);
+   //Account addStudent(Account account);
 }

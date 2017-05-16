@@ -1,10 +1,13 @@
 package camt.cbsd.security;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 
 /**
  * Created by stephan on 20.03.16.
  */
+@Component
 public class  JwtAuthenticationRequest implements Serializable {
 
     private static final long serialVersionUID = -8445943548965154778L;

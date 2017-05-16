@@ -30,14 +30,15 @@ public class Account {
     String password;
     String role;
 
-    @OneToOne(mappedBy = "account")
-    @JsonManagedReference
-    User user;
+   // @OneToOne(mappedBy = "account")
+   // @JsonManagedReference
+   // User user;
 
     @JsonManagedReference
+    @Transient
     private List<Authority> authorities;
 
-    public List<Authority> getAuthorities(){
-        return user.getAuthorities();
-    }
+//    public List<Authority> getAuthorities(){
+//        return user.getAuthorities();
+//    }
 }

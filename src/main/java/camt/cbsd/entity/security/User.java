@@ -4,7 +4,7 @@ package camt.cbsd.entity.security;
  * Created by pariy on 5/14/2017.
  */
         import camt.cbsd.config.json.View;
-        import camt.cbsd.entity.Account;
+//        import camt.cbsd.entity.Account;
         import camt.cbsd.entity.Product;
         import com.fasterxml.jackson.annotation.JsonBackReference;
         import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -67,10 +67,10 @@ public class User {
     @Temporal(TemporalType.TIMESTAMP)
     @NotNull
     private Date lastPasswordResetDate;
-
-    @OneToOne
-    @JsonBackReference
-    Account account;
+//
+//    @OneToOne
+//    @JsonBackReference
+//    Account account;
 
     @JsonView(View.Login.class)
     @JsonManagedReference

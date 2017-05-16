@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestBody;
  */
 
 public class AccountController {
-//    AccountService accountService;
-//
-//    @Autowired
-//    public void setAccountService(AccountService accountService){
-//        this.accountService = accountService;
-//    }
+    AccountService accountService;
+
+    @Autowired
+    public void setAccountService(AccountService accountService){
+        this.accountService = accountService;
+    }
 
 //    @PostMapping("/accountAuthen")
 //    public Account uploadStudentAuthen(@RequestBody Account user) {

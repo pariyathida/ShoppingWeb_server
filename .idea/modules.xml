@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/assignment3.iml" filepath="$PROJECT_DIR$/.idea/modules/assignment3.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/assignment3_main.iml" filepath="$PROJECT_DIR$/.idea/modules/assignment3_main.iml" group="assignment3" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/assignment3_test.iml" filepath="$PROJECT_DIR$/.idea/modules/assignment3_test.iml" group="assignment3" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ShoppingWeb_server.iml" filepath="$PROJECT_DIR$/.idea/modules/ShoppingWeb_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ShoppingWeb_server_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ShoppingWeb_server_main.iml" group="ShoppingWeb_server" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ShoppingWeb_server_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ShoppingWeb_server_test.iml" group="ShoppingWeb_server" />
     </modules>
   </component>
 </project>

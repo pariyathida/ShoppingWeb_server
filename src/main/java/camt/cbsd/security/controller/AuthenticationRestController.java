@@ -1,11 +1,11 @@
 package camt.cbsd.security.controller;
 
-import camt.cbsd.entity.Account;
+//import camt.cbsd.entity.Account;
 import camt.cbsd.security.JwtAuthenticationRequest;
 import camt.cbsd.security.JwtTokenUtil;
 import camt.cbsd.security.JwtUser;
 import camt.cbsd.security.service.JwtAuthenticationResponse;
-import camt.cbsd.service.AccountService;
+//import camt.cbsd.service.AccountService;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -41,7 +41,7 @@ public class AuthenticationRestController {
     private UserDetailsService userDetailsService;
 
     @Autowired
-    private AccountService accountService;
+//    private AccountService accountService;
 
    // @JsonView(View.Login.class)
     @PostMapping("${jwt.route.authentication.path}")
@@ -60,14 +60,14 @@ public class AuthenticationRestController {
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
         final String token = jwtTokenUtil.generateToken(userDetails, device);
 
-       Account account = accountService.getAccountForTransfer(authenticationRequest.getUsername());
+//       Account account = accountService.getAccountForTransfer(authenticationRequest.getUsername());
 
         // Return the token
-        // return ResponseEntity.ok(new JwtAuthenticationResponse(token));
-        Map result = new HashMap();
-        result.put("token",token);
-        result.put("account",account);
-        return ResponseEntity.ok(result);
+         return ResponseEntity.ok(new JwtAuthenticationResponse(token));
+//        Map result = new HashMap();
+//        result.put("token",token);
+//        result.put("account",account);
+//        return ResponseEntity.ok(result);
     }
 
 
