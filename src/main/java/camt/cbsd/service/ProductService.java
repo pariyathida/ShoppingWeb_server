@@ -11,4 +11,6 @@ public interface ProductService {
     Product getProduct(long id);
     List<Product> getProducts();
     Product addProduct(Product product);
+    List<Product> queryProduct(String query);
+
 }

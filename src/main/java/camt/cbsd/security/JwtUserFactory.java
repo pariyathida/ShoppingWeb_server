@@ -1,8 +1,9 @@
 package camt.cbsd.security;
 
 
+
+import camt.cbsd.entity.User;
 import camt.cbsd.entity.security.Authority;
-import camt.cbsd.entity.security.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
@@ -18,13 +19,8 @@ public final class JwtUserFactory {
         return new JwtUser(
                 user.getId(),
                 user.getUsername(),
-                user.getFirstname(),
-                user.getLastname(),
-                user.getEmail(),
                 user.getPassword(),
-                mapToGrantedAuthorities(user.getAuthorities()),
-                user.getEnabled(),
-                user.getLastPasswordResetDate()
+                mapToGrantedAuthorities(user.getAuthorities())
         );
     }
 

@@ -1,15 +1,11 @@
-package camt.cbsd.config;
-
-/**
- * Created by Lenovo on 17-Apr-17.
- */
+package camt.cbsd.config.security;
 
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Component
 public class CorsFilter implements Filter {
@@ -24,7 +20,7 @@ public class CorsFilter implements Filter {
         response.setHeader("Access-Control-Allow-Credentials", "true");
         response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
         response.setHeader("Access-Control-Max-Age", "3600");
-        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With, remember-mee, Authorization");
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With, remember-me, Authorization");
 
         chain.doFilter(req, res);
     }
@@ -36,4 +32,5 @@ public class CorsFilter implements Filter {
     @Override
     public void destroy() {
     }
+
 }

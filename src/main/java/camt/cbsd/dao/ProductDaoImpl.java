@@ -44,4 +44,10 @@ public class ProductDaoImpl implements ProductDao{
     public Integer size() {
         return (int)productRepository.count();
     }
+
+    @Override
+    public List<Product> getProducts(String searchText) {
+        return productRepository.findByNameIgnoreCaseContaining(searchText);
+
+    }
 }

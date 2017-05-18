@@ -1,18 +1,17 @@
 package camt.cbsd.security.service;
 
 
-import camt.cbsd.entity.security.User;
+
+import camt.cbsd.entity.User;
+import camt.cbsd.repository.UserRepository;
 import camt.cbsd.security.JwtUserFactory;
-import camt.cbsd.security.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-/**
- * Created by stephan on 20.03.16.
- */
+
 @Service
 public class JwtUserDetailsServiceImpl implements UserDetailsService {
 
@@ -24,7 +23,7 @@ public class JwtUserDetailsServiceImpl implements UserDetailsService {
         User user = userRepository.findByUsername(username);
 
         if (user == null) {
-            throw new UsernameNotFoundException(String.format("No user found with username '%s'.", username));
+            throw new UsernameNotFoundException(String.format("No userAuth found with username '%s'.", username));
         } else {
             return JwtUserFactory.create(user);
         }

@@ -12,4 +12,5 @@ public interface ProductDao {
     List<Product> getProducts();
     Product addProduct(Product product);
     Integer size();
+    List<Product> getProducts(String searchText);
 }

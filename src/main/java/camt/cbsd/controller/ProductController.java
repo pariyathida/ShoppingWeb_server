@@ -1,7 +1,9 @@
 package camt.cbsd.controller;
 
 import camt.cbsd.entity.Product;
+import camt.cbsd.entity.Purchase;
 import camt.cbsd.service.ProductService;
+import camt.cbsd.service.PurchaseService;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.Response;
 
 import java.awt.image.BufferedImage;
@@ -36,6 +39,10 @@ public class ProductController {
 
     @Autowired
     ProductService productService;
+
+    @Autowired
+    PurchaseService purchaseService;
+
     String imageServerDir;
     String imageUrl;
     String baseUrl;
@@ -72,10 +79,37 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
-    @PostMapping("/product")
-    public Response addProduct(Product product) {
+    @GetMapping("/products")
+    public ResponseEntity<?> queryProduct(HttpServletRequest request, @RequestParam("search") String query) {
+        List<Product> products = productService.queryProduct(query);
+        if (products != null)
+            return ResponseEntity.ok(products);
+        else
+            //http code 204
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 
-        return Response.ok(productService.addProduct(product)).build();
+    }
+
+//    @PostMapping("/product")
+//    public Response addProduct(Product product) {
+//
+//        return Response.ok(productService.addProduct(product)).build();
+//    }
+
+    @PostMapping("/product")
+    public Product uploadOnlyProduct (@RequestBody Product product) {
+
+        productService.addProduct(product);
+        return product;
+
+    }
+
+    @PostMapping("/purchase")
+    public Purchase addPurchase (@RequestBody Purchase product) {
+
+        purchaseService.addPurchase(product);
+        return product;
+
     }
 
     @PostMapping("/product/image")
@@ -110,6 +144,8 @@ public class ProductController {
        }
 
     }
+
+
 
 
 
